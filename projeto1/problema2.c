@@ -79,4 +79,14 @@ int percent_aprov(int aprovados, int reprovados) {
 
     printf("Porcentagem de alunos aprovados: %%%.1lf\n", aprov);
     printf("Porcentagem de alunos reprovados: %%%.1lf\n", reprov);
+
+    int metade = total / 2;
+    
+    if(aprovados > metade){
+        printf("Mais da metade dos alunos foram aprovados.\n");
+        return 1;
+    }
+    else 
+        return 0;
+    
 }
