@@ -4,7 +4,7 @@
 
 int* recebe_notas(double *NOTAS, int tamanho);
 int *conta_notas(int *APR, int tamanho);
-int percent_aprov(int *aprovados, int *reprovados);
+int percent_aprov(int aprovados, int reprovados);
 
 int main (int argc, char *argv[])
 {
@@ -18,16 +18,18 @@ int main (int argc, char *argv[])
    int *APR = (int *)malloc(sizeof(10));
    APR = recebe_notas(NOTAS, MAX); //nesse ponteiro vetor eu vou alocar o meu ponteiro APR que tb tem 10 posições.
 
-    for(int i = 0; i < MAX; i++){
+   /* for(int i = 0; i < MAX; i++){
         printf("%d ", APR[i]);
         printf("\n");
-    }
-    
-    
+    }*/
+     
     int *total_alunos;
     total_alunos = conta_notas(APR, MAX);
-
-    printf("Alunos aprovados: %d\nAlunos reprovados: %d\n", total_alunos[0], total_alunos[1]);
+    
+    int aprovados = total_alunos[0];
+    int reprovados = total_alunos[1];
+    
+    percent_aprov(aprovados, reprovados);
     
     return 0;
 }
@@ -61,12 +63,20 @@ int *conta_notas(int *APR, int tamanho) {
     int *retorno;
     retorno = total;
     
-    /*printf("%d %d\n", total[0], total[1]);
-    printf("%d %d\n", retorno[0], retorno[1]);*/
-    
+    printf("Alunos aprovados: %d\nAlunos reprovados: %d\n", total[0], total[1]);
+    //printf("%d %d\n", retorno[0], retorno[1]);*/
+
     return retorno;
 }
 
-int percent_aprov(int *aprovados, int *reprovados) {
+int percent_aprov(int aprovados, int reprovados) {
+    
+    int total = aprovados + reprovados;
+    double aprov = (total * aprovados)/ 100.0;
+    aprov = aprov * 100;
+    double reprov = (total * reprovados) / 100.0;
+    reprov = reprov * 100;
 
+    printf("Porcentagem de alunos aprovados: %%%.1lf\n", aprov);
+    printf("Porcentagem de alunos reprovados: %%%.1lf\n", reprov);
 }
