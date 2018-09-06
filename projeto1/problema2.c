@@ -4,7 +4,7 @@
 
 int* recebe_notas(double *NOTAS, int tamanho);
 int *conta_notas(int *APR, int tamanho);
-double percent_aprov(double *aprov, double *reprov);
+int percent_aprov(int *aprovados, int *reprovados);
 
 int main (int argc, char *argv[])
 {
@@ -65,4 +65,8 @@ int *conta_notas(int *APR, int tamanho) {
     printf("%d %d\n", retorno[0], retorno[1]);*/
     
     return retorno;
+}
+
+int percent_aprov(int *aprovados, int *reprovados) {
+
 }
